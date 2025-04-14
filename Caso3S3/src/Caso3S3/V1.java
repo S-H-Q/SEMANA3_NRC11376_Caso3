@@ -81,11 +81,15 @@ public class V1 extends JFrame implements ActionListener {
 		}
 		{
 			btnBorrar = new JButton("Borrar");
+			btnBorrar.addActionListener(this);
 			btnBorrar.setBounds(282, 51, 105, 23);
 			contentPane.add(btnBorrar);
 		}
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnBorrar) {
+			do_btnBorrar_actionPerformed(e);
+		}
 		if (e.getSource() == btnNewButton) {
 			do_btnNewButton_actionPerformed(e);
 		}
@@ -106,4 +110,10 @@ public class V1 extends JFrame implements ActionListener {
 		JOptionPane.showMessageDialog(this, "Ingrese un nombre");
 	}
 	
+	protected void do_btnBorrar_actionPerformed(ActionEvent e) {
+		txtS.setText("");
+		txtNom.setText("");
+		txtNom.grabFocus();
+		
+	}
 }
